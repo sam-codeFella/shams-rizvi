@@ -1,10 +1,15 @@
 .stat {
   position: relative;
+  display: inline-flex;
+  align-items: center;
   font-family: var(--mono);
   font-size: 13px;
   color: var(--accent);
-  cursor: help;
+  background: transparent;
+  border: none;
   border-bottom: 1px dashed var(--accent);
+  padding: 0;
+  cursor: pointer;
 }
 
 .tooltip {
@@ -20,4 +25,22 @@
   color: var(--muted);
   white-space: nowrap;
   z-index: 10;
+  animation: tooltipIn 150ms ease;
+}
+
+@keyframes tooltipIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tooltip {
+    animation: none;
+  }
 }

@@ -13,14 +13,12 @@ export function CitedStat({ value, context }: CitedStatProps) {
   const tooltipId = useId()
 
   return (
-    <span
+    <button
+      type="button"
       className={styles.stat}
-      tabIndex={0}
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-      onFocus={() => setOpen(true)}
-      onBlur={() => setOpen(false)}
+      onClick={() => setOpen((o) => !o)}
       aria-describedby={open ? tooltipId : undefined}
+      aria-expanded={open}
     >
       {value}
       {open && (
@@ -28,6 +26,6 @@ export function CitedStat({ value, context }: CitedStatProps) {
           {context}
         </span>
       )}
-    </span>
+    </button>
   )
 }

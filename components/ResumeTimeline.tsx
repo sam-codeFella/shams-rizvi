@@ -9,22 +9,30 @@ export function ResumeTimeline() {
 
   return (
     <ul className={styles.timeline}>
-      {resumeRoles.map((r) => (
-        <li
-          key={r.id}
-          tabIndex={0}
-          onMouseEnter={() => setExpanded(r.id)}
-          onMouseLeave={() => setExpanded(null)}
-          onFocus={() => setExpanded(r.id)}
-          onBlur={() => setExpanded(null)}
-        >
-          <span className={styles.years}>{r.years}</span>
-          <span>
-            <strong>{r.title}</strong>
-            {expanded === r.id && <p className={styles.detail}>{r.detail}</p>}
-          </span>
-        </li>
-      ))}
+      {resumeRoles.map((r) => {
+        const isOpen = expanded === r.id
+        return (
+          <li key={r.id}>
+            <button
+              type="button"
+              className={styles.row}
+              aria-expanded={isOpen}
+              onClick={() => setExpanded(isOpen ? null : r.id)}
+            >
+              <span className={styles.years}>{r.years}</span>
+              <span>
+                <span className={styles.titleRow}>
+                  <strong>{r.title}</strong>
+                  <span className={styles.chevron} aria-hidden="true">
+                    ▾
+                  </span>
+                </span>
+                {isOpen && <p className={styles.detail}>{r.detail}</p>}
+              </span>
+            </button>
+          </li>
+        )
+      })}
     </ul>
   )
 }

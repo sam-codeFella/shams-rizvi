@@ -33,9 +33,11 @@ export function DemoWidget() {
         ))}
       </div>
       <div role="tabpanel" className={styles.panel}>
-        {active === "ask" && <AskTab />}
-        {active === "trace" && <TraceTab />}
-        {active === "decline" && <DeclineTab />}
+        <div key={active} className={styles.panelContent}>
+          {active === "ask" && <AskTab />}
+          {active === "trace" && <TraceTab />}
+          {active === "decline" && <DeclineTab />}
+        </div>
       </div>
     </div>
   )

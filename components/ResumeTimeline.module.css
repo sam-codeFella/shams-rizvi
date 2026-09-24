@@ -4,12 +4,22 @@
   padding: 0;
 }
 
-.timeline li {
+.row {
   display: grid;
   grid-template-columns: 130px 1fr;
   gap: 12px;
+  align-items: start;
+  width: 100%;
   padding-block: 12px;
   border-bottom: 1px solid var(--line);
+  background: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
 }
 
 .years {
@@ -18,8 +28,45 @@
   color: var(--muted);
 }
 
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.chevron {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  transition: transform 150ms ease;
+}
+
+.row[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+
 .detail {
   color: var(--muted);
   font-size: 14px;
-  margin: 4px 0 0;
+  margin: 6px 0 0;
+  animation: detailIn 200ms ease;
+}
+
+@keyframes detailIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron,
+  .detail {
+    animation: none;
+    transition: none;
+  }
 }

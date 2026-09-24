@@ -10,22 +10,27 @@ describe("CitedStat", () => {
     expect(screen.queryByRole("tooltip")).not.toBeInTheDocument()
   })
 
-  it("reveals the tooltip on hover and hides it again on unhover", async () => {
+  it("toggles the tooltip on click/tap — works identically on touch and mouse", async () => {
     const user = userEvent.setup()
     render(<CitedStat value="500M+ events a day" context="Peak ingestion, Concentric AI." />)
-    const stat = screen.getByText("500M+ events a day")
+    const stat = screen.getByRole("button", { name: "500M+ events a day" })
 
-    await user.hover(stat)
+    await user.click(stat)
     expect(screen.getByRole("tooltip")).toHaveTextContent("Peak ingestion, Concentric AI.")
+    expect(stat).toHaveAttribute("aria-expanded", "true")
 
-    await user.unhover(stat)
+    await user.click(stat)
     expect(screen.queryByRole("tooltip")).not.toBeInTheDocument()
+    expect(stat).toHaveAttribute("aria-expanded", "false")
   })
 
-  it("reveals the tooltip on keyboard focus", async () => {
+  it("toggles on keyboard activation (Enter), since it's a real button", async () => {
     const user = userEvent.setup()
     render(<CitedStat value="32 enterprise customers" context="As of the last fiscal year." />)
     await user.tab()
+    expect(screen.getByRole("button", { name: "32 enterprise customers" })).toHaveFocus()
+
+    await user.keyboard("{Enter}")
     expect(screen.getByRole("tooltip")).toBeInTheDocument()
   })
 })

@@ -25,23 +25,29 @@ export function WorkCard({
   proofContext,
   diagramSteps,
 }: WorkCardProps) {
-  const [hovered, setHovered] = useState(false)
+  const [showDiagram, setShowDiagram] = useState(false)
 
   return (
-    <article
-      className={styles.card}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onFocus={() => setHovered(true)}
-      onBlur={() => setHovered(false)}
-    >
+    <article className={styles.card}>
       <header>
         <h3>{title}</h3>
         <span className={styles.company}>{company}</span>
       </header>
       <p>{summary}</p>
       <CitedStat value={proofLabel} context={proofContext} />
-      <div className={styles.diagramSlot}>{hovered && <PipelineDiagram steps={diagramSteps} />}</div>
+      <button
+        type="button"
+        className={styles.diagramToggle}
+        onClick={() => setShowDiagram((v) => !v)}
+        aria-expanded={showDiagram}
+      >
+        {showDiagram ? "Hide how it works ▲" : "See how it works ▼"}
+      </button>
+      {showDiagram && (
+        <div className={styles.diagramSlot}>
+          <PipelineDiagram steps={diagramSteps} />
+        </div>
+      )}
       <Link href={`/work/${slug}`}>Read the case →</Link>
     </article>
   )

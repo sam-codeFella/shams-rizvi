@@ -23,3 +23,25 @@ globalThis.ResizeObserver = ResizeObserverStub
 // cmdk also calls scrollIntoView on the highlighted item, which jsdom
 // doesn't implement.
 Element.prototype.scrollIntoView = () => {}
+
+// jsdom doesn't implement IntersectionObserver (used by the scroll-reveal
+// Reveal component). Fires "intersecting" immediately so reveal animations
+// settle synchronously in tests instead of staying invisible forever.
+class IntersectionObserverStub {
+  callback: IntersectionObserverCallback
+  constructor(callback: IntersectionObserverCallback) {
+    this.callback = callback
+  }
+  observe(target: Element) {
+    this.callback(
+      [{ isIntersecting: true, target } as IntersectionObserverEntry],
+      this as unknown as IntersectionObserver
+    )
+  }
+  unobserve() {}
+  disconnect() {}
+  takeRecords(): IntersectionObserverEntry[] {
+    return []
+  }
+}
+globalThis.IntersectionObserver = IntersectionObserverStub as unknown as typeof IntersectionObserver

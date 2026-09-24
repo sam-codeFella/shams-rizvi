@@ -29,16 +29,18 @@ describe("WorkCard", () => {
     )
   })
 
-  it("hides the diagram until the card is hovered, then reveals it", async () => {
+  it("hides the diagram until the toggle is clicked, then reveals it — works by click, not just hover", async () => {
     const user = userEvent.setup()
     render(<WorkCard {...baseProps} />)
 
     expect(screen.queryByRole("img", { name: /Filing → Chunk/ })).not.toBeInTheDocument()
 
-    await user.hover(screen.getByText("Cited answers over filings"))
+    const toggle = screen.getByRole("button", { name: "See how it works ▼" })
+    await user.click(toggle)
     expect(screen.getByRole("img", { name: "Filing → Chunk → Embed → Retrieve → Cite" })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: "Hide how it works ▲" })).toHaveAttribute("aria-expanded", "true")
 
-    await user.unhover(screen.getByText("Cited answers over filings"))
+    await user.click(screen.getByRole("button", { name: "Hide how it works ▲" }))
     expect(screen.queryByRole("img", { name: /Filing → Chunk/ })).not.toBeInTheDocument()
   })
 })

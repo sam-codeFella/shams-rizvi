@@ -5,7 +5,7 @@ import styles from "./Hero.module.css"
 export function Hero() {
   return (
     <section className={styles.hero}>
-      <div>
+      <div className={styles.copy}>
         <p className={styles.eyebrow}>{site.role}</p>
         <h1 className={styles.headline}>
           I build production AI <mark className={styles.highlight}>systems</mark> your users can
@@ -26,7 +26,7 @@ export function Hero() {
           </a>
         </div>
       </div>
-      <div id="demo">
+      <div id="demo" className={styles.demo}>
         <DemoWidget />
       </div>
     </section>
