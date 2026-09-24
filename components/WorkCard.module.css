@@ -1,0 +1,36 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow 150ms ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.card h3 {
+  font-size: 17px;
+  margin: 0;
+}
+
+.company {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.diagramSlot {
+  min-height: 56px;
+}

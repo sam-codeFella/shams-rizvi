@@ -1,0 +1,46 @@
+@import "../styles/tokens.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding-inline: 20px;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+section {
+  padding-block: 56px;
+  border-top: 1px solid var(--line);
+}
+
+/* Playwright's page.pdf() emulates print media by default, so this hides
+   site chrome from the generated résumé PDF without needing a second
+   root layout. */
+@media print {
+  header,
+  footer {
+    display: none;
+  }
+}

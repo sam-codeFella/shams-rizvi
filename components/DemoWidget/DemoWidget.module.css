@@ -1,0 +1,106 @@
+.widget {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tablist {
+  display: flex;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px 14px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--line);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.tab[aria-selected="true"] {
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.panel {
+  padding: 20px;
+  font-size: 14.5px;
+}
+
+.form {
+  display: flex;
+  gap: 8px;
+}
+
+.form input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.form button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 16px;
+}
+
+.question {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.citations {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.cite {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  background: var(--mark);
+  color: var(--mark-ink);
+  padding: 1px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+
+.decline {
+  background: var(--warn-bg);
+  color: var(--warn);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 13.5px;
+  margin-top: 4px;
+}
+
+.decline strong {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2px;
+}
