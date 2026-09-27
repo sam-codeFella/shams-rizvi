@@ -2,7 +2,7 @@
 number: 1
 title: "Where it started"
 year: 2014
-draft: true
+draft: false
 ---
 
 I was born in Bhopal. My dad worked for Hindustan Machine Tools, a government job that moved us around, so for a while home was the small hill town of Nainital.
@@ -19,6 +19,4 @@ I played every chance I got. I represented my school in more matches than I can 
 
 Around the same time, I found robotics.
 
-I wanted to understand
-
-<!-- continue from here: what robotics taught you, then the bridge into computers/PICT, per the original prompt: "How I got into computers; the PICT years; one specific memory." -->
+<!-- continue from here: what I wanted to understand, what robotics taught you, then the bridge into computers/PICT, per the original prompt: "How I got into computers; the PICT years; one specific memory." -->
