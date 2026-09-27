@@ -4,6 +4,9 @@ import { render, screen } from "@testing-library/react"
 vi.mock("@/lib/content", () => ({
   getAllPosts: () => [],
 }))
+vi.mock("@/data/planned-posts", () => ({
+  plannedPosts: ["A planned post"],
+}))
 
 import HomePage from "./page"
 
@@ -16,7 +19,7 @@ describe("HomePage", () => {
 
   it("shows the planned posts as 'soon' when there are no real posts yet", () => {
     render(<HomePage />)
-    expect(screen.getByText("Why our AI declines to answer")).toBeInTheDocument()
+    expect(screen.getByText("A planned post")).toBeInTheDocument()
     expect(screen.getAllByText("soon").length).toBeGreaterThan(0)
   })
 
