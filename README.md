@@ -71,8 +71,6 @@ invent facts that aren't given):
 - `data/site.ts` — `email` is `"[add email]"`.
 - `components/SideColumn.tsx` — X and GitHub links are commented out until
   real URLs exist.
-- `app/page.tsx` — the About section's last line has
-  `[personal line to be written by Shams]`.
 - `app/now/page.tsx` — has a `[Add more on what you're focused on this
   month.]` line.
 

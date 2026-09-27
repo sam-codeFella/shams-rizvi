@@ -33,17 +33,30 @@ export default function HomePage() {
             <h2>About</h2>
           </div>
           <div className={styles.about}>
+            <p>Hi, I&apos;m Shams. I love building products.</p>
             <p>
-              I&apos;m Shams. I&apos;ve spent eight years turning messy data into something people can trust,
-              first building banking software at Barclays, then at Concentric AI, where I built pipelines
-              handling 500M+ events a day and became a co-inventor on a US patent.
+              For close to a decade I&apos;ve been turning raw data into intelligence that people can act
+              on, across finance, data security and business.
             </p>
             <p>
-              In 2025 I started KnowYourCompany.ai and built all of it: the search, the agents, the evals,
-              and the pitch to 100+ money managers. It taught me more about building and selling than any
-              job had.
+              I started at Barclays, building omnichannel banking applications across customer systems
+              and payments. At Concentric AI, I helped lay the groundwork for every data pipeline,
+              ingesting terabytes of data a day, and helped grow it into a platform that flagged active
+              breaches and data residency issues in under 120 milliseconds.
             </p>
-            <p>Outside work: Bangalore, [personal line to be written by Shams].</p>
+            <p>
+              Finance has always pulled at me. So with my closest friends, I set out to build the
+              research platform we wished we had for our own investing. That became
+              KnowYourCompany.ai, which I&apos;m proud to lead as CEO.
+            </p>
+            <p>
+              The biggest lesson from building it: value alone doesn&apos;t sell. It has to be easy to
+              use, easy to verify and easy to understand. Everything else is decoration.
+            </p>
+            <p>
+              These days I spend most of my time thinking about where AI will actually create value, and
+              where all of this is heading.
+            </p>
           </div>
           <Link href="/story" className={styles.more}>
             The long version →

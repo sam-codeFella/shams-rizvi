@@ -13,7 +13,7 @@ import HomePage from "./page"
 describe("HomePage", () => {
   it("renders the About copy, ending with a link to /story", () => {
     render(<HomePage />)
-    expect(screen.getByText(/I'm Shams\. I've spent eight years/)).toBeInTheDocument()
+    expect(screen.getByText(/Hi, I'm Shams\. I love building products\./)).toBeInTheDocument()
     expect(screen.getByRole("link", { name: "The long version →" })).toHaveAttribute("href", "/story")
   })
 
