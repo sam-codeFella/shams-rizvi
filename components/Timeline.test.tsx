@@ -8,7 +8,8 @@ describe("Timeline", () => {
     expect(screen.getByText("Founder & CEO, KnowYourCompany.ai")).toBeInTheDocument()
     expect(screen.getByText("Software Engineer, Concentric AI")).toBeInTheDocument()
     expect(screen.getByText("Software Developer, Barclays Corporate Banking")).toBeInTheDocument()
-    expect(screen.getByText("B.E. Computer Science, PICT")).toBeInTheDocument()
+    expect(screen.getByText("B.E. Computer Science")).toBeInTheDocument()
+    expect(screen.getByText(/Provided APAC support for IBM security systems/)).toBeInTheDocument()
     expect(screen.getByText("2025 – now")).toBeInTheDocument()
   })
 

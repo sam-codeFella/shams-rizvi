@@ -32,7 +32,7 @@ export const timeline: TimelineEntry[] = [
     mark: "P",
     logo: "/images/logos/pict.svg",
     years: "2014 – 2018",
-    role: "B.E. Computer Science, PICT",
-    line: "Plus an internship at IBM, 2017 – 2018.",
+    role: "B.E. Computer Science",
+    line: "Provided APAC support for IBM security systems, 2017 – 2018.",
   },
 ]
