@@ -20,6 +20,13 @@
   margin: 0 0 8px;
 }
 
+.intro {
+  font-size: 17px;
+  color: var(--soft);
+  max-width: 60ch;
+  margin: 0 0 32px;
+}
+
 .meta {
   font-family: var(--mono);
   font-size: 13px;

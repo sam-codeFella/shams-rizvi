@@ -10,6 +10,16 @@ vi.mock("@/lib/content", () => chapterMocks)
 import StoryPage from "./page"
 
 describe("StoryPage", () => {
+  it("shows the intro line under the heading", () => {
+    chapterMocks.getChapters.mockReturnValue([])
+    chapterMocks.siteHasDraftChapters.mockReturnValue(true)
+
+    render(<StoryPage />)
+    expect(
+      screen.getByText(/I'm trying to create things people use every day/)
+    ).toBeInTheDocument()
+  })
+
   it("shows 'More chapters coming' when some chapters are still draft", () => {
     chapterMocks.getChapters.mockReturnValue([])
     chapterMocks.siteHasDraftChapters.mockReturnValue(true)
