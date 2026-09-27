@@ -1,5 +1,5 @@
 ---
-number: 7
+number: 2
 title: "What went wrong"
 year: 2026
 draft: true

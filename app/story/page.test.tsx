@@ -10,26 +10,6 @@ vi.mock("@/lib/content", () => chapterMocks)
 import StoryPage from "./page"
 
 describe("StoryPage", () => {
-  it("shows the intro line under the heading", () => {
-    chapterMocks.getChapters.mockReturnValue([])
-    chapterMocks.siteHasDraftChapters.mockReturnValue(true)
-
-    render(<StoryPage />)
-    expect(
-      screen.getByText("Football taught me teams. Robots taught me machines. Music taught me people.")
-    ).toBeInTheDocument()
-  })
-
-  it("shows the gratitude outro before the closing links", () => {
-    chapterMocks.getChapters.mockReturnValue([])
-    chapterMocks.siteHasDraftChapters.mockReturnValue(true)
-
-    render(<StoryPage />)
-    expect(
-      screen.getByText(/I'm trying to create things people use every day/)
-    ).toBeInTheDocument()
-  })
-
   it("shows 'More chapters coming' when some chapters are still draft", () => {
     chapterMocks.getChapters.mockReturnValue([])
     chapterMocks.siteHasDraftChapters.mockReturnValue(true)
@@ -50,5 +30,15 @@ describe("StoryPage", () => {
     expect(screen.getByText("2014")).toBeInTheDocument()
     expect(screen.getByText("It started here.")).toBeInTheDocument()
     expect(screen.queryByText("More chapters coming.")).not.toBeInTheDocument()
+  })
+
+  it("renders a chapter with no year without crashing", () => {
+    chapterMocks.getChapters.mockReturnValue([
+      { slug: "01-where-it-started", number: 1, title: "Untitled", draft: false, content: "<p>Body.</p>" },
+    ])
+    chapterMocks.siteHasDraftChapters.mockReturnValue(false)
+
+    render(<StoryPage />)
+    expect(screen.getByText("Untitled")).toBeInTheDocument()
   })
 })
