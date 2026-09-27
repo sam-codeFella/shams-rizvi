@@ -68,7 +68,7 @@ export function SideColumn({ variant, navItems }: SideColumnProps) {
                 className={styles.cover}
                 src="/images/shams.jpg"
                 alt="Shams Rizvi"
-                width={960}
+                width={720}
                 height={1280}
                 priority
                 sizes="(max-width: 1023px) 0px, 320px"
@@ -88,7 +88,7 @@ export function SideColumn({ variant, navItems }: SideColumnProps) {
                 className={styles.cover}
                 src="/images/shams.jpg"
                 alt="Shams Rizvi"
-                width={960}
+                width={720}
                 height={1280}
                 sizes="(max-width: 1023px) 0px, 320px"
               />
