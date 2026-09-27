@@ -22,13 +22,12 @@
   display: none;
 }
 
-.photo {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: 50% 20%;
-  margin-bottom: 20px;
+.cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 24px;
 }
 
 .backLink {
@@ -147,7 +146,7 @@
     height: 36px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: 50% 20%;
+    object-position: 50% 40%;
   }
 
   .mobileName {

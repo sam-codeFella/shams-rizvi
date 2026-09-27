@@ -65,12 +65,13 @@ export function SideColumn({ variant, navItems }: SideColumnProps) {
           {variant === "home" ? (
             <>
               <Image
-                className={styles.photo}
+                className={styles.cover}
                 src="/images/shams.jpg"
                 alt="Shams Rizvi"
-                width={96}
-                height={96}
+                width={960}
+                height={1280}
                 priority
+                sizes="(max-width: 1023px) 0px, 320px"
               />
               <p className={styles.name}>
                 {site.name} <Owl />
@@ -83,7 +84,14 @@ export function SideColumn({ variant, navItems }: SideColumnProps) {
               <Link href="/" className={styles.backLink}>
                 ← {site.name}
               </Link>
-              <Image className={styles.photo} src="/images/shams.jpg" alt="Shams Rizvi" width={96} height={96} />
+              <Image
+                className={styles.cover}
+                src="/images/shams.jpg"
+                alt="Shams Rizvi"
+                width={960}
+                height={1280}
+                sizes="(max-width: 1023px) 0px, 320px"
+              />
             </>
           )}
 
