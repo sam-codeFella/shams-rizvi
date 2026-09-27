@@ -50,7 +50,7 @@ export function SideColumn({ variant, navItems }: SideColumnProps) {
         <div className={styles.mobileBar}>
           <Image
             className={styles.mobilePhoto}
-            src="/images/shams.jpg"
+            src="/images/shams-bw.jpg"
             alt="Shams Rizvi"
             width={36}
             height={36}
@@ -66,7 +66,7 @@ export function SideColumn({ variant, navItems }: SideColumnProps) {
             <>
               <Image
                 className={styles.cover}
-                src="/images/shams.jpg"
+                src="/images/shams-bw.jpg"
                 alt="Shams Rizvi"
                 width={720}
                 height={1280}
@@ -86,7 +86,7 @@ export function SideColumn({ variant, navItems }: SideColumnProps) {
               </Link>
               <Image
                 className={styles.cover}
-                src="/images/shams.jpg"
+                src="/images/shams-bw.jpg"
                 alt="Shams Rizvi"
                 width={720}
                 height={1280}
