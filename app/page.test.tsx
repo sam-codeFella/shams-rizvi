@@ -1,23 +1,33 @@
 import { describe, it, expect, vi } from "vitest"
 import { render, screen } from "@testing-library/react"
 
-vi.mock("@/components/Hero", () => ({ Hero: () => <div>HERO</div> }))
-vi.mock("@/components/Offers", () => ({ Offers: () => <div>OFFERS</div> }))
-vi.mock("@/components/SprintTimeline", () => ({ SprintTimeline: () => <div>TIMELINE</div> }))
-vi.mock("@/components/WorkPreviewStrip", () => ({ WorkPreviewStrip: async () => <div>WORK</div> }))
-vi.mock("@/components/BackgroundTeaser", () => ({ BackgroundTeaser: () => <div>BACKGROUND</div> }))
-vi.mock("@/components/ContactSection", () => ({ ContactSection: () => <div>CONTACT</div> }))
+vi.mock("@/lib/content", () => ({
+  getAllPosts: () => [],
+}))
 
 import HomePage from "./page"
 
 describe("HomePage", () => {
-  it("renders every section in spec order", async () => {
-    render(await HomePage())
-    const order = ["HERO", "OFFERS", "TIMELINE", "WORK", "BACKGROUND", "CONTACT"]
-    const text = screen.getByTestId("home").textContent ?? ""
-    const positions = order.map((label) => text.indexOf(label))
-    for (let i = 1; i < positions.length; i++) {
-      expect(positions[i]).toBeGreaterThan(positions[i - 1])
-    }
+  it("renders the About copy, ending with a link to /story", () => {
+    render(<HomePage />)
+    expect(screen.getByText(/I'm Shams\. I've spent eight years/)).toBeInTheDocument()
+    expect(screen.getByRole("link", { name: "The long version →" })).toHaveAttribute("href", "/story")
+  })
+
+  it("shows the planned posts as 'soon' when there are no real posts yet", () => {
+    render(<HomePage />)
+    expect(screen.getByText("Why our AI declines to answer")).toBeInTheDocument()
+    expect(screen.getAllByText("soon").length).toBeGreaterThan(0)
+  })
+
+  it("renders the Timeline and Built sections", () => {
+    render(<HomePage />)
+    expect(screen.getByText("Founder & CEO, KnowYourCompany.ai")).toBeInTheDocument()
+    expect(screen.getByText("KnowYourCompany.ai", { selector: "a" })).toBeInTheDocument()
+  })
+
+  it("renders the footer with the RSS link", () => {
+    render(<HomePage />)
+    expect(screen.getByRole("link", { name: "RSS" })).toHaveAttribute("href", "/rss.xml")
   })
 })

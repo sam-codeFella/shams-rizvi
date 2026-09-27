@@ -1,32 +1,30 @@
 import { defineConfig, defineCollection, s } from "velite"
 
-const work = defineCollection({
-  name: "Work",
-  pattern: "work/**/*.mdx",
-  schema: s
-    .object({
-      slug: s.path(),
-      title: s.string(),
-      company: s.string(),
-      summary: s.string(),
-      proofLabel: s.string(),
-      proofContext: s.string(),
-      order: s.number(),
-      diagramSteps: s.array(s.string()),
-      content: s.markdown(),
-    })
-    .transform((data) => ({ ...data, slug: data.slug.split("/").pop() })),
-})
-
-const writing = defineCollection({
-  name: "Writing",
-  pattern: "writing/**/*.mdx",
+const posts = defineCollection({
+  name: "Post",
+  pattern: "posts/**/*.md",
   schema: s
     .object({
       slug: s.path(),
       title: s.string(),
       date: s.isodate(),
       summary: s.string(),
+      draft: s.boolean().default(false),
+      content: s.markdown(),
+    })
+    .transform((data) => ({ ...data, slug: data.slug.split("/").pop() })),
+})
+
+const story = defineCollection({
+  name: "Chapter",
+  pattern: "story/**/*.md",
+  schema: s
+    .object({
+      slug: s.path(),
+      number: s.number(),
+      title: s.string(),
+      year: s.number().optional(),
+      draft: s.boolean().default(false),
       content: s.markdown(),
     })
     .transform((data) => ({ ...data, slug: data.slug.split("/").pop() })),
@@ -34,7 +32,7 @@ const writing = defineCollection({
 
 export default defineConfig({
   root: "content",
-  collections: { work, writing },
+  collections: { posts, story },
   output: {
     data: ".velite",
   },

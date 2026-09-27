@@ -1,0 +1,67 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 32px 110px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding-block: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--soft);
+}
+
+.years {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--faint);
+  padding-top: 6px;
+  white-space: nowrap;
+}
+
+.role {
+  font-weight: 600;
+  margin: 0 0 4px;
+  font-size: 15.5px;
+}
+
+.line {
+  margin: 0;
+  color: var(--soft);
+  font-size: 15px;
+  max-width: 60ch;
+}
+
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: 32px 1fr;
+  }
+  .years {
+    grid-column: 2;
+    padding-top: 0;
+  }
+  .role,
+  .line {
+    grid-column: 2;
+  }
+}

@@ -1,51 +1,50 @@
 import { describe, it, expect } from "vitest"
-import {
-  sortWorkItems,
-  findWorkItem,
-  sortWritingItems,
-  findWritingItem,
-  type WorkItem,
-  type WritingItem,
-} from "./content"
+import { publishedPosts, findPost, publishedChapters, hasDraftChapters, type Post, type Chapter } from "./content"
 
-const workFixtures: WorkItem[] = [
-  { slug: "b", title: "B", company: "X", summary: "", proofLabel: "", proofContext: "", order: 2, diagramSteps: [], content: "" },
-  { slug: "a", title: "A", company: "X", summary: "", proofLabel: "", proofContext: "", order: 1, diagramSteps: [], content: "" },
+const posts: Post[] = [
+  { slug: "old", title: "Old", date: "2025-01-01", summary: "", draft: false, content: "" },
+  { slug: "new", title: "New", date: "2026-06-01", summary: "", draft: false, content: "" },
+  { slug: "hidden", title: "Hidden", date: "2026-09-01", summary: "", draft: true, content: "" },
 ]
 
-describe("sortWorkItems", () => {
-  it("sorts by the order field ascending", () => {
-    expect(sortWorkItems(workFixtures).map((i) => i.slug)).toEqual(["a", "b"])
+describe("publishedPosts", () => {
+  it("excludes drafts and sorts newest first", () => {
+    expect(publishedPosts(posts).map((p) => p.slug)).toEqual(["new", "old"])
   })
 })
 
-describe("findWorkItem", () => {
-  it("finds an item by slug", () => {
-    expect(findWorkItem(workFixtures, "b")?.title).toBe("B")
+describe("findPost", () => {
+  it("finds a published post by slug", () => {
+    expect(findPost(posts, "old")?.title).toBe("Old")
+  })
+
+  it("does not return a draft post even if the slug matches", () => {
+    expect(findPost(posts, "hidden")).toBeUndefined()
   })
 
   it("returns undefined for an unknown slug", () => {
-    expect(findWorkItem(workFixtures, "nope")).toBeUndefined()
+    expect(findPost(posts, "nope")).toBeUndefined()
   })
 })
 
-const writingFixtures: WritingItem[] = [
-  { slug: "second-post", title: "Second", date: "2026-02-01", summary: "", content: "" },
-  { slug: "first-post", title: "First", date: "2026-01-01", summary: "", content: "" },
+const chapters: Chapter[] = [
+  { slug: "b", number: 2, title: "B", draft: false, content: "" },
+  { slug: "a", number: 1, title: "A", draft: false, content: "" },
+  { slug: "c", number: 3, title: "C", draft: true, content: "" },
 ]
 
-describe("sortWritingItems", () => {
-  it("sorts by date descending (newest first)", () => {
-    expect(sortWritingItems(writingFixtures).map((i) => i.slug)).toEqual(["second-post", "first-post"])
+describe("publishedChapters", () => {
+  it("excludes drafts and sorts by chapter number", () => {
+    expect(publishedChapters(chapters).map((c) => c.slug)).toEqual(["a", "b"])
   })
 })
 
-describe("findWritingItem", () => {
-  it("finds a post by slug", () => {
-    expect(findWritingItem(writingFixtures, "first-post")?.title).toBe("First")
+describe("hasDraftChapters", () => {
+  it("is true when at least one chapter is a draft", () => {
+    expect(hasDraftChapters(chapters)).toBe(true)
   })
 
-  it("returns undefined for an unknown slug", () => {
-    expect(findWritingItem(writingFixtures, "nope")).toBeUndefined()
+  it("is false when none are drafts", () => {
+    expect(hasDraftChapters(chapters.filter((c) => !c.draft))).toBe(false)
   })
 })

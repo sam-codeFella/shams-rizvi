@@ -1,0 +1,98 @@
+.wrap {
+  max-width: var(--text-col);
+  margin: 0 auto;
+  padding: 48px 20px 90px;
+}
+
+.back {
+  font-size: 14px;
+  color: var(--soft);
+  margin-bottom: 32px;
+  display: inline-block;
+}
+
+.back:hover {
+  color: var(--accent);
+}
+
+.wrap h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+.meta {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--faint);
+  margin: 0 0 40px;
+}
+
+.body {
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.body p {
+  margin: 0 0 22px;
+}
+
+.body h2 {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 40px 0 16px;
+}
+
+.body h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 32px 0 14px;
+}
+
+.body img {
+  border-radius: 4px;
+  margin: 8px 0 4px;
+}
+
+.body figcaption {
+  font-size: 13px;
+  color: var(--faint);
+  margin-bottom: 24px;
+}
+
+.body pre {
+  background: var(--line);
+  padding: 16px 18px;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 14px;
+  margin: 0 0 22px;
+}
+
+.body code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+.body blockquote {
+  margin: 28px 0;
+  padding-left: 18px;
+  border-left: 3px solid var(--accent);
+  font-size: 19px;
+  color: var(--text);
+}
+
+.signoff {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--soft);
+  font-size: 15px;
+}
+
+.signoff a:hover {
+  color: var(--accent);
+}

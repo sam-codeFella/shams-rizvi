@@ -1,0 +1,37 @@
+.owl {
+  color: var(--soft);
+  vertical-align: -2px;
+  flex: none;
+}
+
+.eyeL,
+.eyeR {
+  transform-origin: center;
+  transition: transform 80ms ease;
+}
+
+.owl:hover .eyeL,
+.owl:focus-visible .eyeL,
+.owl:hover .eyeR,
+.owl:focus-visible .eyeR {
+  animation: blink 200ms ease;
+}
+
+@keyframes blink {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyeL,
+  .eyeR {
+    animation: none !important;
+  }
+}

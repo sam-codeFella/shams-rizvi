@@ -1,0 +1,65 @@
+.wrap {
+  max-width: var(--text-col);
+  margin: 0 auto;
+  padding: 48px 20px 90px;
+}
+
+.back {
+  font-size: 14px;
+  color: var(--soft);
+  margin-bottom: 32px;
+  display: inline-block;
+}
+
+.back:hover {
+  color: var(--accent);
+}
+
+.wrap h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 32px;
+}
+
+.wrap h2 {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--faint);
+  font-weight: 400;
+  margin: 36px 0 14px;
+}
+
+.offer {
+  margin-bottom: 4px;
+}
+
+.offer h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.offer p {
+  color: var(--soft);
+  font-size: 16px;
+  max-width: 58ch;
+  margin: 0 0 28px;
+}
+
+.fit p {
+  color: var(--soft);
+  font-size: 16px;
+  max-width: 58ch;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.contact a:hover {
+  color: var(--accent);
+}

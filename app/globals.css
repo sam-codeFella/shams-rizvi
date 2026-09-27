@@ -1,46 +1,87 @@
-@import "../styles/tokens.css";
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap");
+
+:root {
+  --bg: #FFFFFF;
+  --text: #111111;
+  --soft: #5F6368;
+  --faint: #9AA0A6;
+  --line: #ECECEC;
+  --accent: #E8590C;
+  --font: "Geist", "Inter", system-ui, -apple-system, sans-serif;
+  --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --content-max: 1100px;
+  --text-col: 640px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0F0F10;
+    --text: #EDEDED;
+    --soft: #A1A1AA;
+    --faint: #6B6B73;
+    --line: #232326;
+    --accent: #FF8A4C;
+  }
+}
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  color-scheme: light dark;
+}
+
 body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.6;
   margin: 0;
-  padding-inline: 20px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
   color: var(--accent);
+  transition: color 150ms ease;
 }
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+[tabindex]:focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 4px;
+  outline-offset: 2px;
+}
+
+button {
+  font-family: inherit;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 .wrap {
-  max-width: 980px;
+  max-width: var(--content-max);
   margin: 0 auto;
 }
 
-section {
-  padding-block: 56px;
-  border-top: 1px solid var(--line);
+.mono {
+  font-family: var(--mono);
 }
 
-/* Playwright's page.pdf() emulates print media by default, so this hides
-   site chrome from the generated résumé PDF without needing a second
-   root layout. */
-@media print {
-  header,
-  footer {
-    display: none;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

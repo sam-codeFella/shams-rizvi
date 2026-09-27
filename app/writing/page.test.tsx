@@ -1,12 +1,16 @@
-import { describe, it, expect } from "vitest"
+import { describe, it, expect, vi } from "vitest"
 import { render, screen } from "@testing-library/react"
+
+vi.mock("@/lib/content", () => ({
+  getAllPosts: () => [],
+}))
+
 import WritingIndexPage from "./page"
 
 describe("WritingIndexPage", () => {
-  it("shows the locked empty-state copy", () => {
+  it("shows the planned posts when there are no real posts yet", () => {
     render(<WritingIndexPage />)
-    expect(
-      screen.getByText("Nothing here yet. I write when I have something worth five minutes of your attention.")
-    ).toBeInTheDocument()
+    expect(screen.getByText("Nothing published yet. Here's what's planned:")).toBeInTheDocument()
+    expect(screen.getByText("Moving from Pinecone to hybrid search")).toBeInTheDocument()
   })
 })

@@ -11,22 +11,9 @@ vi.mock("next/link", () => ({
     React.createElement("a", { href, ...rest }, children as React.ReactNode),
 }))
 
-// cmdk (via the CommandPalette) uses ResizeObserver internally, which jsdom
-// doesn't implement.
-class ResizeObserverStub {
-  observe() {}
-  unobserve() {}
-  disconnect() {}
-}
-globalThis.ResizeObserver = ResizeObserverStub
-
-// cmdk also calls scrollIntoView on the highlighted item, which jsdom
-// doesn't implement.
-Element.prototype.scrollIntoView = () => {}
-
-// jsdom doesn't implement IntersectionObserver (used by the scroll-reveal
-// Reveal component). Fires "intersecting" immediately so reveal animations
-// settle synchronously in tests instead of staying invisible forever.
+// jsdom doesn't implement IntersectionObserver (used by SideColumn's
+// scroll-spy). Fires "intersecting" immediately so the first nav item
+// resolves as active in tests instead of staying unobserved forever.
 class IntersectionObserverStub {
   callback: IntersectionObserverCallback
   constructor(callback: IntersectionObserverCallback) {

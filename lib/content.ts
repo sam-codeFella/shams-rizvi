@@ -1,54 +1,54 @@
-import rawWork from "../.velite/work.json"
-import rawWriting from "../.velite/writing.json"
+import rawPosts from "../.velite/posts.json"
+import rawStory from "../.velite/story.json"
 
-export interface WorkItem {
-  slug: string
-  title: string
-  company: string
-  summary: string
-  proofLabel: string
-  proofContext: string
-  order: number
-  diagramSteps: string[]
-  content: string
-}
-
-export function sortWorkItems(items: WorkItem[]): WorkItem[] {
-  return [...items].sort((a, b) => a.order - b.order)
-}
-
-export function findWorkItem(items: WorkItem[], slug: string): WorkItem | undefined {
-  return items.find((i) => i.slug === slug)
-}
-
-export async function getWorkItems(): Promise<WorkItem[]> {
-  return sortWorkItems(rawWork as WorkItem[])
-}
-
-export async function getWorkItem(slug: string): Promise<WorkItem | undefined> {
-  return findWorkItem(await getWorkItems(), slug)
-}
-
-export interface WritingItem {
+export interface Post {
   slug: string
   title: string
   date: string
   summary: string
+  draft: boolean
   content: string
 }
 
-export function sortWritingItems(items: WritingItem[]): WritingItem[] {
-  return [...items].sort((a, b) => (a.date < b.date ? 1 : -1))
+export interface Chapter {
+  slug: string
+  number: number
+  title: string
+  year?: number
+  draft: boolean
+  content: string
 }
 
-export function findWritingItem(items: WritingItem[], slug: string): WritingItem | undefined {
-  return items.find((i) => i.slug === slug)
+export function publishedPosts(posts: Post[]): Post[] {
+  return posts
+    .filter((post) => !post.draft)
+    .sort((a, b) => (a.date < b.date ? 1 : -1))
 }
 
-export async function getWritingItems(): Promise<WritingItem[]> {
-  return sortWritingItems(rawWriting as WritingItem[])
+export function findPost(posts: Post[], slug: string): Post | undefined {
+  return posts.find((post) => post.slug === slug && !post.draft)
 }
 
-export async function getWritingItem(slug: string): Promise<WritingItem | undefined> {
-  return findWritingItem(await getWritingItems(), slug)
+export function publishedChapters(chapters: Chapter[]): Chapter[] {
+  return chapters.filter((chapter) => !chapter.draft).sort((a, b) => a.number - b.number)
+}
+
+export function hasDraftChapters(chapters: Chapter[]): boolean {
+  return chapters.some((chapter) => chapter.draft)
+}
+
+export function getAllPosts(): Post[] {
+  return publishedPosts(rawPosts as Post[])
+}
+
+export function getPost(slug: string): Post | undefined {
+  return findPost(rawPosts as Post[], slug)
+}
+
+export function getChapters(): Chapter[] {
+  return publishedChapters(rawStory as Chapter[])
+}
+
+export function siteHasDraftChapters(): boolean {
+  return hasDraftChapters(rawStory as Chapter[])
 }

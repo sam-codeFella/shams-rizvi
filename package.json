@@ -9,12 +9,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run",
-    "resume:pdf": "tsx scripts/generate-resume-pdf.ts"
+    "test": "vitest run"
   },
   "dependencies": {
-    "cmdk": "^1.1.1",
-    "fuse.js": "^7.5.0",
     "next": "16.3.6",
     "react": "19.2.8",
     "react-dom": "19.2.8"
@@ -29,8 +26,6 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.6",
     "jsdom": "^27.0.1",
-    "playwright": "^1.63.0",
-    "tsx": "^4.23.15",
     "typescript": "^5",
     "velite": "^0.4.0",
     "vitest": "^3.2.7"

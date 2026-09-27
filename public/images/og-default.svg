@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#FFFFFF"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#ECECEC" stroke-width="2"/>
+  <text x="80" y="300" font-family="system-ui, sans-serif" font-size="64" font-weight="700" fill="#111111">Shams Rizvi</text>
+  <text x="80" y="360" font-family="system-ui, sans-serif" font-size="30" fill="#5F6368">Engineer and founder</text>
+  <text x="80" y="400" font-family="system-ui, sans-serif" font-size="30" fill="#5F6368">I build AI that people can check.</text>
+</svg>

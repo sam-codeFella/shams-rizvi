@@ -1,24 +1,41 @@
 import type { Metadata } from "next"
 import "./globals.css"
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
+import { site } from "@/data/site"
+
+const description = `${site.role}. ${site.tagline}`
 
 export const metadata: Metadata = {
-  title: "Shams Rizvi, Fractional Head of AI",
-  description:
-    "AI production systems, built end to end — pipelines, agents, and answers your users can check.",
+  metadataBase: new URL("https://shams-rizvi.com"),
+  title: {
+    default: `${site.name}`,
+    template: `%s · ${site.name}`,
+  },
+  description,
+  openGraph: {
+    title: site.name,
+    description,
+    url: "https://shams-rizvi.com",
+    siteName: site.name,
+    images: [{ url: "/images/og-default.svg", width: 1200, height: 630 }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.name,
+    description,
+    images: ["/images/og-default.svg"],
+  },
+  alternates: {
+    types: {
+      "application/rss+xml": "/rss.xml",
+    },
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        <div className="wrap">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
