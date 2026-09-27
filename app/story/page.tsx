@@ -31,10 +31,7 @@ export default function StoryPage() {
 
         <main className={styles.main}>
           <h1>The long version</h1>
-          <p className={styles.intro}>
-            I&apos;m trying to create things people use every day. I&apos;m grateful to my parents, to
-            my friends, and to the strangers on the internet who taught me so much of what I know.
-          </p>
+          <p className={styles.intro}>Football taught me teams. Robots taught me machines. Music taught me people.</p>
           {chapters.length > 0 && (
             <p className={styles.meta}>
               About a {totalMinutes}-minute read · updated {updated}
@@ -56,6 +53,11 @@ export default function StoryPage() {
               </div>
             </article>
           ))}
+
+          <p className={styles.outro}>
+            I&apos;m trying to create things people use every day. I&apos;m grateful to my parents, to
+            my friends, and to the strangers on the internet who taught me so much of what I know.
+          </p>
 
           {hasDrafts && <p className={styles.comingSoon}>More chapters coming.</p>}
 

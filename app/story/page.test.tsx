@@ -16,6 +16,16 @@ describe("StoryPage", () => {
 
     render(<StoryPage />)
     expect(
+      screen.getByText("Football taught me teams. Robots taught me machines. Music taught me people.")
+    ).toBeInTheDocument()
+  })
+
+  it("shows the gratitude outro before the closing links", () => {
+    chapterMocks.getChapters.mockReturnValue([])
+    chapterMocks.siteHasDraftChapters.mockReturnValue(true)
+
+    render(<StoryPage />)
+    expect(
       screen.getByText(/I'm trying to create things people use every day/)
     ).toBeInTheDocument()
   })

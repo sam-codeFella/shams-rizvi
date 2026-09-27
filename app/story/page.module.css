@@ -34,6 +34,13 @@
   margin: 0 0 44px;
 }
 
+.outro {
+  font-size: 17px;
+  color: var(--soft);
+  max-width: 60ch;
+  margin: 40px 0 20px;
+}
+
 .chapter {
   display: grid;
   grid-template-columns: 56px 1fr;
