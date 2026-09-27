@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { site } from "@/data/site"
 import { Owl } from "./Owl"
@@ -47,7 +48,13 @@ export function SideColumn({ variant, navItems }: SideColumnProps) {
 
       <aside className={styles.column}>
         <div className={styles.mobileBar}>
-          <img className={styles.mobilePhoto} src="/images/shams.svg" alt="Shams Rizvi" width={36} height={36} />
+          <Image
+            className={styles.mobilePhoto}
+            src="/images/shams.jpg"
+            alt="Shams Rizvi"
+            width={36}
+            height={36}
+          />
           <span className={styles.mobileName}>{site.name}</span>
           <label htmlFor="mobile-nav-toggle" className={styles.menuButton}>
             Menu
@@ -57,7 +64,14 @@ export function SideColumn({ variant, navItems }: SideColumnProps) {
         <div className={styles.inner}>
           {variant === "home" ? (
             <>
-              <img className={styles.photo} src="/images/shams.svg" alt="Shams Rizvi" width={96} height={96} />
+              <Image
+                className={styles.photo}
+                src="/images/shams.jpg"
+                alt="Shams Rizvi"
+                width={96}
+                height={96}
+                priority
+              />
               <p className={styles.name}>
                 {site.name} <Owl />
               </p>
@@ -69,7 +83,7 @@ export function SideColumn({ variant, navItems }: SideColumnProps) {
               <Link href="/" className={styles.backLink}>
                 ← {site.name}
               </Link>
-              <img className={styles.photo} src="/images/shams.svg" alt="Shams Rizvi" width={96} height={96} />
+              <Image className={styles.photo} src="/images/shams.jpg" alt="Shams Rizvi" width={96} height={96} />
             </>
           )}
 

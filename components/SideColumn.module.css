@@ -27,6 +27,7 @@
   height: 96px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: 50% 20%;
   margin-bottom: 20px;
 }
 
@@ -146,6 +147,7 @@
     height: 36px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: 50% 20%;
   }
 
   .mobileName {
