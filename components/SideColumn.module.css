@@ -22,12 +22,30 @@
   display: none;
 }
 
+.coverFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.coverFrame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, var(--bg) 100%);
+  pointer-events: none;
+}
+
 .cover {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 24px;
+  height: 100%;
+  object-fit: cover;
+  object-position: left 18%;
 }
 
 .backLink {
@@ -55,14 +73,7 @@
 .role {
   font-size: 15px;
   color: var(--soft);
-  margin: 0 0 4px;
-}
-
-.tagline {
-  font-size: 15px;
-  color: var(--soft);
   margin: 0 0 32px;
-  max-width: 30ch;
 }
 
 .nav {
@@ -112,14 +123,27 @@
 
 .socials {
   display: flex;
-  gap: 18px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 16px;
   margin-top: auto;
   font-size: 13px;
   color: var(--soft);
 }
 
+.socials a {
+  display: flex;
+  color: var(--soft);
+  transition: color 150ms ease, transform 150ms ease;
+}
+
 .socials a:hover {
   color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.socials svg {
+  display: block;
 }
 
 @media (max-width: 1023px) {
@@ -156,6 +180,9 @@
   }
 
   .menuButton {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-size: 13px;
     color: var(--soft);
     border: 1px solid var(--line);
@@ -164,14 +191,41 @@
     cursor: pointer;
   }
 
+  .menuChevron {
+    transition: transform 200ms ease;
+  }
+
+  .toggleInput:checked ~ .column .menuChevron {
+    transform: rotate(180deg);
+  }
+
   .inner {
-    display: none;
-    padding: 8px 16px 24px;
-    border-top: 1px solid var(--line);
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    padding: 0 16px;
+    border-top: 1px solid transparent;
+    transition:
+      max-height 280ms ease,
+      opacity 200ms ease,
+      padding 280ms ease,
+      border-color 280ms ease,
+      visibility 0s linear 280ms;
   }
 
   .toggleInput:checked ~ .column .inner {
-    display: block;
+    max-height: 2000px;
+    opacity: 1;
+    visibility: visible;
+    padding: 8px 16px 24px;
+    border-top-color: var(--line);
+    transition:
+      max-height 280ms ease,
+      opacity 200ms ease,
+      padding 280ms ease,
+      border-color 280ms ease,
+      visibility 0s linear 0s;
   }
 
   .toggleInput:focus-visible ~ .column .menuButton {

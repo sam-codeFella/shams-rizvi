@@ -10,13 +10,17 @@ describe("BuiltList", () => {
     expect(screen.getByText("US patent")).toBeInTheDocument()
   })
 
-  it("links the entry that has a URL, and does not link the one that doesn't", () => {
+  it("links entries that have a URL, and does not link the one that doesn't", () => {
     render(<BuiltList />)
     expect(screen.getByRole("link", { name: "KnowYourCompany.ai" })).toHaveAttribute(
       "href",
       "https://www.knowyourcompany.ai/"
     )
-    expect(screen.queryByRole("link", { name: "US patent" })).not.toBeInTheDocument()
-    expect(screen.getByText("US patent")).toBeInTheDocument()
+    expect(screen.getByRole("link", { name: "US patent" })).toHaveAttribute(
+      "href",
+      "https://uspto.report/patent/app/20200322342"
+    )
+    expect(screen.queryByRole("link", { name: "Pipelines at 500M+ events a day" })).not.toBeInTheDocument()
+    expect(screen.getByText("Pipelines at 500M+ events a day")).toBeInTheDocument()
   })
 })

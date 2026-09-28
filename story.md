@@ -1,12 +1,12 @@
 ---
-number: 1
 title: "Football taught me teams. Robots taught me machines. Music taught me people."
-draft: false
 ---
+
+# Football taught me teams. Robots taught me machines. Music taught me people.
 
 I was born in the heart of India, in Bhopal, the city of lakes. My father worked for the government, so every few years a transfer letter would show up and we'd pack. One of those took us to Nainital for a while.
 
-![Childhood in Nainital](/images/story/nainital.png)
+![Childhood in Nainital](/images/story/nainital.jpg "[Photo: childhood in Nainital]")
 
 As a kid, I asked a lot of questions. I wanted to know how the world worked, what other people saw in it, and why they didn't spend every waking hour on the things they loved. I couldn't imagine not doing that.
 
@@ -14,36 +14,33 @@ For me, my first love was football.
 
 I played every chance I got. I was fortunate enough to represent my school & district, and loved every second of it. Football taught me things no classroom did: how to lose, how to show up the next day anyway, and how a team becomes more than the players in it.
 
-![Football](/images/story/football.jpeg)
+![Football](/images/story/football.jpg "[Photo: football]")
 
 Around the same time, I found robotics.
 
 I wanted to understand every piece of a machine. Why does this motor turn that way? What happens if I change this sensor? Could I make it smarter? I spent hours making, breaking and remaking things, long before I knew the word "engineer".
 
-![My first robot](/images/story/robotics-young.png)
+![My first robot](/images/story/robotics-young.jpg "[Photo: me as a kid with my first robot]")
 
 I never really stopped. Years later, I was still making robots, just bigger and more ambitious ones.
 
-![Still doing robotics](/images/story/robotics-older.png)
+![Still doing robotics](/images/story/robotics-older.jpg "[Photo: me older, still doing robotics]")
 
 In my late teens, I was mesmerised by music & its power to convey emotions & feelings. First it was Avicii, and those strings inspired me to create my own mixes.
 
 Music taught me that what you make isn't finished until it lands with the person on the other end. You can create a feeling, layer by layer, but only the listener decides if it works.
 
-*[Photo: music days, a mix or a set]*
-<!-- restore as: ![Music days](/images/story/music.jpg) -->
+![Music days](/images/story/music.jpg "[Photo: music days]")
 
 Then came engineering at PICT, an internship at IBM, and my first job at Barclays building banking apps for customers & payments. After that, Concentric AI, where we built the data pipelines from scratch & I ended up as a co-inventor on a US patent.
 
-*[Photo: Concentric days]*
-<!-- restore as: ![Concentric days](/images/story/concentric.jpg) -->
+![Concentric days](/images/story/concentric.jpg "[Photo: Concentric days]")
 
 In my early 20s, I got into crypto & investing. That little venture would go on to help me a lot in my later years as an entrepreneur managing risk.
 
 Finance had always fascinated me. So in 2025, along with my best mates, I started KnowYourCompany.ai to create the research platform we wished we had for our own investing.
 
-*[Photo: the KnowYourCompany.ai team, or a demo]*
-<!-- restore as: ![KnowYourCompany.ai](/images/story/kyc.jpg) -->
+![KnowYourCompany.ai](/images/story/kyc.jpg "[Photo: the KnowYourCompany.ai team, or a demo]")
 
 It taught me the hard parts: marketing, sales & fundraising. It also taught me the biggest lesson of my career.
 

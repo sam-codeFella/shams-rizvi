@@ -6,6 +6,7 @@ import Link from "next/link"
 import { site } from "@/data/site"
 import { Owl } from "./Owl"
 import { CopyEmailButton } from "./CopyEmailButton"
+import { LinkedInIcon, XIcon, InstagramIcon, GitHubIcon } from "./SocialIcons"
 import styles from "./SideColumn.module.css"
 
 export interface NavItem {
@@ -58,40 +59,57 @@ export function SideColumn({ variant, navItems }: SideColumnProps) {
           <span className={styles.mobileName}>{site.name}</span>
           <label htmlFor="mobile-nav-toggle" className={styles.menuButton}>
             Menu
+            <svg
+              className={styles.menuChevron}
+              width="10"
+              height="10"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
           </label>
         </div>
 
         <div className={styles.inner}>
           {variant === "home" ? (
             <>
-              <Image
-                className={styles.cover}
-                src="/images/shams-bw.jpg"
-                alt="Shams Rizvi"
-                width={720}
-                height={1280}
-                priority
-                sizes="(max-width: 1023px) 0px, 320px"
-              />
+              <div className={styles.coverFrame}>
+                <Image
+                  className={styles.cover}
+                  src="/images/shams-bw.jpg"
+                  alt="Shams Rizvi"
+                  width={720}
+                  height={1280}
+                  priority
+                  sizes="(max-width: 1023px) 100vw, 320px"
+                />
+              </div>
               <p className={styles.name}>
                 {site.name} <Owl />
               </p>
               <p className={styles.role}>{site.role}</p>
-              <p className={styles.tagline}>{site.tagline}</p>
             </>
           ) : (
             <>
               <Link href="/" className={styles.backLink}>
                 ← {site.name}
               </Link>
-              <Image
-                className={styles.cover}
-                src="/images/shams-bw.jpg"
-                alt="Shams Rizvi"
-                width={720}
-                height={1280}
-                sizes="(max-width: 1023px) 0px, 320px"
-              />
+              <div className={styles.coverFrame}>
+                <Image
+                  className={styles.cover}
+                  src="/images/quote-snow.png"
+                  alt="Shams Rizvi standing in falling snow, with the quote: Let everything happen to you. Beauty and terror. Just keep going. No feeling is final."
+                  width={720}
+                  height={1280}
+                  sizes="(max-width: 1023px) 100vw, 320px"
+                />
+              </div>
             </>
           )}
 
@@ -113,10 +131,18 @@ export function SideColumn({ variant, navItems }: SideColumnProps) {
             {site.nowLine} →
           </a>
 
-          {/* X and GitHub are placeholders — add them here once the URLs exist. */}
           <div className={styles.socials}>
-            <a href={site.linkedinUrl} target="_blank" rel="noopener noreferrer">
-              LinkedIn
+            <a href={site.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+              <LinkedInIcon />
+            </a>
+            <a href={site.xUrl} target="_blank" rel="noopener noreferrer" aria-label="X" title="X">
+              <XIcon />
+            </a>
+            <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+              <InstagramIcon />
+            </a>
+            <a href={site.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+              <GitHubIcon />
             </a>
             <CopyEmailButton email={site.email} />
           </div>

@@ -17,7 +17,7 @@ export default function StoryPage() {
 
   const navItems: NavItem[] = chapters.map((chapter) => ({
     id: `chapter-${chapter.number}`,
-    label: `${chapter.number}. ${chapter.title}`,
+    label: chapter.title,
     href: `#chapter-${chapter.number}`,
   }))
 
@@ -41,10 +41,7 @@ export default function StoryPage() {
             <article key={chapter.number} id={`chapter-${chapter.number}`} className={styles.chapter}>
               <span className={styles.chapterYear}>{chapter.year ?? ""}</span>
               <div>
-                <h2 className={styles.chapterHead}>
-                  <span className={styles.num}>{chapter.number}</span>
-                  {chapter.title}
-                </h2>
+                <h2 className={styles.chapterHead}>{chapter.title}</h2>
                 <div
                   className={styles.chapterBody}
                   dangerouslySetInnerHTML={{ __html: chapter.content }}

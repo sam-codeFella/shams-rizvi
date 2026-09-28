@@ -6,8 +6,17 @@
   font-size: 13px;
   color: var(--soft);
   cursor: pointer;
+  transition: color 150ms ease, transform 100ms ease;
 }
 
 .btn:hover {
+  color: var(--accent);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn.copied {
   color: var(--accent);
 }

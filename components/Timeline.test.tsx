@@ -6,9 +6,9 @@ describe("Timeline", () => {
   it("renders all four entries with role and years", () => {
     render(<Timeline />)
     expect(screen.getByText("Founder & CEO, KnowYourCompany.ai")).toBeInTheDocument()
-    expect(screen.getByText("Software Engineer, Concentric AI")).toBeInTheDocument()
+    expect(screen.getByText("Founding Engineer & Lead, Concentric AI")).toBeInTheDocument()
     expect(screen.getByText("Software Developer, Barclays Corporate Banking")).toBeInTheDocument()
-    expect(screen.getByText("B.E. Computer Science")).toBeInTheDocument()
+    expect(screen.getByText("L2 Support APAC, IBM")).toBeInTheDocument()
     expect(screen.getByText(/Provided APAC support for IBM security systems/)).toBeInTheDocument()
     expect(screen.getByText("2025 – now")).toBeInTheDocument()
   })

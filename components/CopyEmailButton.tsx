@@ -17,7 +17,11 @@ export function CopyEmailButton({ email }: { email: string }) {
   }
 
   return (
-    <button type="button" className={styles.btn} onClick={handleCopy}>
+    <button
+      type="button"
+      className={copied ? `${styles.btn} ${styles.copied}` : styles.btn}
+      onClick={handleCopy}
+    >
       {copied ? "Copied" : email}
     </button>
   )

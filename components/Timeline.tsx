@@ -6,9 +6,9 @@ export function Timeline() {
     <ul className={styles.list}>
       {timeline.map((entry) => (
         <li key={entry.role} className={styles.row}>
-          <img className={styles.mark} src={entry.logo} alt="" width={32} height={32} aria-hidden="true" />
+          <img className={styles.mark} src={entry.logo} alt="" width={40} height={40} aria-hidden="true" />
           <span className={styles.years}>{entry.years}</span>
-          <span>
+          <span className={styles.details}>
             <p className={styles.role}>{entry.role}</p>
             <p className={styles.line}>{entry.line}</p>
           </span>

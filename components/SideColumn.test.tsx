@@ -8,21 +8,30 @@ const homeNav = [
 ]
 
 describe("SideColumn", () => {
-  it("home variant shows the name, tagline, and nav items", () => {
+  it("home variant shows the name, role, and nav items", () => {
     render(<SideColumn variant="home" navItems={homeNav} />)
     // Rendered twice: once for the desktop column, once for the collapsed mobile bar.
     expect(screen.getAllByText("Shams Rizvi").length).toBeGreaterThan(0)
-    expect(screen.getByText("I build AI that people can check.")).toBeInTheDocument()
+    expect(screen.getByText("Founder, Investor & Engineer")).toBeInTheDocument()
     expect(screen.getByRole("link", { name: "About" })).toHaveAttribute("href", "#about")
     expect(screen.getByRole("link", { name: "Writing" })).toHaveAttribute("href", "#writing")
   })
 
-  it("home variant links the now-line to /work and LinkedIn to the real profile", () => {
+  it("home variant links the now-line to /work and each social to the real profile", () => {
     render(<SideColumn variant="home" navItems={homeNav} />)
     expect(screen.getByRole("link", { name: /helping 2 founders/ })).toHaveAttribute("href", "/work")
     expect(screen.getByRole("link", { name: "LinkedIn" })).toHaveAttribute(
       "href",
       "https://www.linkedin.com/in/shams-rizvi/"
+    )
+    expect(screen.getByRole("link", { name: "X" })).toHaveAttribute("href", "https://x.com/ShamsHasanRizv")
+    expect(screen.getByRole("link", { name: "Instagram" })).toHaveAttribute(
+      "href",
+      "https://www.instagram.com/shams.lebowski/"
+    )
+    expect(screen.getByRole("link", { name: "GitHub" })).toHaveAttribute(
+      "href",
+      "https://github.com/sam-codeFella"
     )
   })
 

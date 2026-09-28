@@ -19,14 +19,14 @@ describe("StoryPage", () => {
     expect(screen.getByRole("link", { name: "Read the writing →" })).toHaveAttribute("href", "/writing")
   })
 
-  it("renders a published chapter with its number, title, and year", () => {
+  it("renders a published chapter with its title and year", () => {
     chapterMocks.getChapters.mockReturnValue([
       { slug: "01-where-it-started", number: 1, title: "Where it started", year: 2014, draft: false, content: "<p>It started here.</p>" },
     ])
     chapterMocks.siteHasDraftChapters.mockReturnValue(false)
 
     render(<StoryPage />)
-    expect(screen.getByText("Where it started")).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: "Where it started" })).toBeInTheDocument()
     expect(screen.getByText("2014")).toBeInTheDocument()
     expect(screen.getByText("It started here.")).toBeInTheDocument()
     expect(screen.queryByText("More chapters coming.")).not.toBeInTheDocument()
@@ -39,6 +39,6 @@ describe("StoryPage", () => {
     chapterMocks.siteHasDraftChapters.mockReturnValue(false)
 
     render(<StoryPage />)
-    expect(screen.getByText("Untitled")).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: "Untitled" })).toBeInTheDocument()
   })
 })

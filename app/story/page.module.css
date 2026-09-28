@@ -53,12 +53,6 @@
   margin: 0 0 18px;
 }
 
-.chapterHead .num {
-  color: var(--faint);
-  font-weight: 400;
-  margin-right: 8px;
-}
-
 .chapterBody {
   font-size: 17px;
   line-height: 1.75;

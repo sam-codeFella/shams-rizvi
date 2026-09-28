@@ -12,4 +12,5 @@
   height: 100%;
   background: var(--accent);
   width: 0%;
+  transition: width 100ms linear;
 }
