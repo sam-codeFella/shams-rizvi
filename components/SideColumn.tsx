@@ -82,7 +82,7 @@ export function SideColumn({ variant, navItems }: SideColumnProps) {
               <div className={styles.coverFrame}>
                 <Image
                   className={styles.cover}
-                  src="/images/shams-bw.jpg"
+                  src="/images/cold.jpeg"
                   alt="Shams Rizvi"
                   width={720}
                   height={1280}

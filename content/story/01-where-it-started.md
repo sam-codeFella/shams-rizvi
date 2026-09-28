@@ -30,20 +30,13 @@ In my late teens, I was mesmerised by music & its power to convey emotions & fee
 
 Music taught me that what you make isn't finished until it lands with the person on the other end. You can create a feeling, layer by layer, but only the listener decides if it works.
 
-*[Photo: music days, a mix or a set]*
-<!-- restore as: ![Music days](/images/story/music.jpg) -->
-
 Then came engineering at PICT, an internship at IBM, and my first job at Barclays building banking apps for customers & payments. After that, Concentric AI, where we built the data pipelines from scratch & I ended up as a co-inventor on a US patent.
-
-*[Photo: Concentric days]*
-<!-- restore as: ![Concentric days](/images/story/concentric.jpg) -->
 
 In my early 20s, I got into crypto & investing. That little venture would go on to help me a lot in my later years as an entrepreneur managing risk.
 
 Finance had always fascinated me. So in 2025, along with my best mates, I started KnowYourCompany.ai to create the research platform we wished we had for our own investing.
 
-*[Photo: the KnowYourCompany.ai team, or a demo]*
-<!-- restore as: ![KnowYourCompany.ai](/images/story/kyc.jpg) -->
+![KnowYourCompany.ai](/images/story/kyc.jpeg)
 
 It taught me the hard parts: marketing, sales & fundraising. It also taught me the biggest lesson of my career.
 
