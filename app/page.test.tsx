@@ -29,6 +29,18 @@ describe("HomePage", () => {
     expect(screen.getByText("KnowYourCompany.ai", { selector: "a" })).toBeInTheDocument()
   })
 
+  it("has a Work nav item and a Book a call CTA linking to the booking URL", () => {
+    render(<HomePage />)
+    expect(screen.getByRole("link", { name: "Work" })).toHaveAttribute("href", "#work")
+    const cta = screen.getByRole("link", { name: "Book a call →" })
+    expect(cta).toHaveAttribute("href", "https://calendar.app.google/5bmS5PfEbb2Di3yu9")
+    expect(cta).toHaveAttribute("target", "_blank")
+    expect(screen.getByRole("link", { name: "More about how we could work together →" })).toHaveAttribute(
+      "href",
+      "/work"
+    )
+  })
+
   it("renders the footer with the RSS link", () => {
     render(<HomePage />)
     expect(screen.getByRole("link", { name: "RSS" })).toHaveAttribute("href", "/rss.xml")

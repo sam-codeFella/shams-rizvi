@@ -18,4 +18,11 @@ describe("WorkPage", () => {
       "https://www.linkedin.com/in/shams-rizvi/"
     )
   })
+
+  it("has a Book a call CTA for the Fractional Head of AI offer", () => {
+    render(<WorkPage />)
+    const cta = screen.getByRole("link", { name: "Book a call →" })
+    expect(cta).toHaveAttribute("href", "https://calendar.app.google/5bmS5PfEbb2Di3yu9")
+    expect(cta).toHaveAttribute("target", "_blank")
+  })
 })

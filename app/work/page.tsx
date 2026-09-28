@@ -4,7 +4,10 @@ import { site } from "@/data/site"
 import { CopyEmailButton } from "@/components/CopyEmailButton"
 import styles from "./page.module.css"
 
-export const metadata: Metadata = { title: "Work with me" }
+export const metadata: Metadata = {
+  title: "Work with me",
+  description: "Fractional Head of AI for seed to Series A teams, plus a fixed-fee AI Production Readiness Sprint.",
+}
 
 export default function WorkPage() {
   return (
@@ -15,13 +18,16 @@ export default function WorkPage() {
       <h1>Work with me</h1>
 
       <div className={styles.offer}>
-        <h3>AI Production Readiness Sprint</h3>
-        <p>2 weeks, fixed fee. Evals on your data, failure analysis, top fixes shipped.</p>
+        <h3>Fractional Head of AI</h3>
+        <p>5 to 15 hours a week, monthly retainer.</p>
+        <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className={styles.cta}>
+          Book a call →
+        </a>
       </div>
 
       <div className={styles.offer}>
-        <h3>Fractional Head of AI</h3>
-        <p>5 to 15 hours a week, monthly retainer.</p>
+        <h3>AI Production Readiness Sprint</h3>
+        <p>2 weeks, fixed fee. Evals on your data, failure analysis, top fixes shipped.</p>
       </div>
 
       <h2>Best fit</h2>

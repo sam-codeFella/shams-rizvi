@@ -9,4 +9,5 @@ export const site = {
   githubUrl: "https://github.com/sam-codeFella",
   email: "shams@knowyourcompany.ai",
   nowLine: "Now: helping 2 founders ship AI to production",
+  bookingUrl: "https://calendar.app.google/5bmS5PfEbb2Di3yu9",
 } as const

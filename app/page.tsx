@@ -7,10 +7,12 @@ import { Footer } from "@/components/Footer"
 import { getAllPosts } from "@/lib/content"
 import { formatMonthYear } from "@/lib/format"
 import { plannedPosts } from "@/data/planned-posts"
+import { site } from "@/data/site"
 import styles from "./page.module.css"
 
 const navItems: NavItem[] = [
   { id: "about", label: "About", href: "#about" },
+  { id: "work", label: "Work", href: "#work" },
   { id: "writing", label: "Writing", href: "#writing" },
   { id: "timeline", label: "Timeline", href: "#timeline" },
   { id: "built", label: "Built", href: "#built" },
@@ -61,6 +63,30 @@ export default function HomePage() {
           <Link href="/story" className={styles.more}>
             The long version →
           </Link>
+        </section>
+
+        <section id="work" className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>Work</h2>
+          </div>
+          <div className={styles.about}>
+            <p>
+              Alongside KnowYourCompany.ai, I work as a Fractional Head of AI: 5 to 15 hours a week,
+              helping seed to Series A teams ship AI they can trust.
+            </p>
+            <p>
+              If you&apos;re hiring for something like this, or you&apos;re doing similar work yourself
+              and want to compare notes, book time with me directly.
+            </p>
+          </div>
+          <div className={styles.workLinks}>
+            <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className={styles.ctaPrimary}>
+              Book a call →
+            </a>
+            <Link href="/work" className={styles.more}>
+              More about how we could work together →
+            </Link>
+          </div>
         </section>
 
         <section id="writing" className={styles.section}>
