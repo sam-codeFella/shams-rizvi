@@ -20,9 +20,14 @@ export default function WorkPage() {
       <div className={styles.offer}>
         <h3>Fractional Head of AI</h3>
         <p>5 to 15 hours a week, monthly retainer.</p>
-        <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className={styles.cta}>
-          Book a call →
-        </a>
+        <div className={styles.offerLinks}>
+          <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className={styles.cta}>
+            Book a call →
+          </a>
+          <a href="/resume-fractional.pdf" download="Shams-Rizvi-Fractional-Resume.pdf" className={styles.download}>
+            Download résumé →
+          </a>
+        </div>
       </div>
 
       <div className={styles.offer}>

@@ -25,4 +25,11 @@ describe("WorkPage", () => {
     expect(cta).toHaveAttribute("href", "https://calendar.app.google/5bmS5PfEbb2Di3yu9")
     expect(cta).toHaveAttribute("target", "_blank")
   })
+
+  it("offers a downloadable résumé", () => {
+    render(<WorkPage />)
+    const download = screen.getByRole("link", { name: "Download résumé →" })
+    expect(download).toHaveAttribute("href", "/resume-fractional.pdf")
+    expect(download).toHaveAttribute("download", "Shams-Rizvi-Fractional-Resume.pdf")
+  })
 })
